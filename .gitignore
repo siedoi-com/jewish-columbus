@@ -1,0 +1,27 @@
+# Node / Build / Package files
+node_modules/
+npm-debug.log
+yarn-error.log
+dist/
+build/
+
+# Sass / CSS cache
+.sass-cache/
+*.css.map
+
+# IDE / Editor
+*.sublime-project
+*.sublime-workspace
+*.idea/
+*.vscode/
+
+# Backup / Temporary files
+*.bak
+*.tmp
+*.swp
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
