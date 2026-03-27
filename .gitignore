@@ -16,6 +16,7 @@ build/
 *.vscode/
 
 # Backup / Temporary files
+tmp/
 *.bak
 *.tmp
 *.swp

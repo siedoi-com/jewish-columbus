@@ -49,7 +49,7 @@ function neutech_columbus_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'neutech-columbus' ),
+			'main-menu' => esc_html__( 'Main menu', 'neutech-columbus' ),
 		)
 	);
 
@@ -138,14 +138,29 @@ add_action( 'widgets_init', 'neutech_columbus_widgets_init' );
  * Enqueue scripts and styles.
  */
 function neutech_columbus_scripts() {
-	wp_enqueue_style( 'neutech-columbus-style', get_stylesheet_uri(), array(), _S_VERSION );
+
+    wp_enqueue_style('neutech-columbus-theme', get_template_directory_uri().'/assets/main.css', array(), time());
+
+	wp_enqueue_style( 'neutech-columbus-style', get_stylesheet_uri(), array(), time() );
 	wp_style_add_data( 'neutech-columbus-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'neutech-columbus-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	/*wp_enqueue_script( 'neutech-columbus-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
-	}
+	}*/
+
+    wp_enqueue_script('html5shiv-printshiv', 'https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js', [], _S_VERSION, false);
+    wp_enqueue_script('neutech-columbus-theme', get_template_directory_uri().'/assets/main.js', [], time(), false);
+    wp_enqueue_script('splide', get_template_directory_uri().'/assets/splide.min.js', [], _S_VERSION, true);
+
+    wp_register_script('neutech-columbus-script', get_template_directory_uri().'/script.js', [], _S_VERSION, true);
+    $php_vars = array(
+        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+    );
+    wp_localize_script('neutech-columbus-script', 'ncPhpVars', $php_vars);
+    wp_enqueue_script('neutech-columbus-script');
+
 }
 add_action( 'wp_enqueue_scripts', 'neutech_columbus_scripts' );
 
@@ -176,3 +191,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+include_once(get_template_directory() . '/inc/helpers.php');
+
+if(file_exists(get_template_directory() . '/gutenberg-blocks/gutenberg-blocks.php'))
+    include_once(get_template_directory() . '/gutenberg-blocks/gutenberg-blocks.php');
