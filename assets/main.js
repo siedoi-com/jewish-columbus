@@ -6,9 +6,15 @@ if (postSliders.length > 0) {
             gap: '6rem',      
             pagination: false,   
             arrows: false,       
+            padding: {
+                right: 0
+            },
             breakpoints: {
                 960: {
                     perPage: 2, 
+                    padding: {
+                        right: '20%'
+                    }
                 },
                 640: {
                     perPage: 1, 

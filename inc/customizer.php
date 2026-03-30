@@ -31,6 +31,26 @@ function neutech_columbus_customize_register( $wp_customize ) {
 			)
 		);
 	}
+
+
+    $theme_template = wp_get_theme()->get_template();
+    $theme_text_domain = wp_get_theme()->get('TextDomain');
+    $wp_customize->add_setting('footer_logo', [
+        'default'           => 0,
+        'sanitize_callback' => 'absint',
+    ]);
+    $wp_customize->add_control(new WP_Customize_Media_Control(
+        $wp_customize,
+        'footer_logo_control',
+        [
+            'label'       => __('Footer Logo', $theme_text_domain),
+            'section'     => 'title_tagline',
+            'settings'    => 'footer_logo',
+            'mime_type'   => 'image',
+            'priority'    => 9,
+        ]
+    ));
+
 }
 add_action( 'customize_register', 'neutech_columbus_customize_register' );
 

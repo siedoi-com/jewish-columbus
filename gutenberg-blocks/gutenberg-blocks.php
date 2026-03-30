@@ -50,4 +50,54 @@ function acf_init_add_gutenberg_blocks() {
         'keywords'			=> [],
     ));
 
+    acf_register_block(array(
+        'name'				=> 'neutech-columbus-recent-posts',
+        'title'				=> 'Recent posts',
+        'description'		=> '',
+        'render_callback'	=> 'gutenberg_custom_blocks_callback',
+        'category'			=> 'neutech_columbus_custom_blocks',
+        'icon'				=> 'table-row-before',
+        'keywords'			=> [],
+    ));
+
+    acf_register_block(array(
+        'name'				=> 'neutech-columbus-impact-banner',
+        'title'				=> 'Impact banner',
+        'description'		=> '',
+        'render_callback'	=> 'gutenberg_custom_blocks_callback',
+        'category'			=> 'neutech_columbus_custom_blocks',
+        'icon'				=> 'table-row-before',
+        'keywords'			=> [],
+    ));
+
+    acf_register_block(array(
+        'name'				=> 'neutech-columbus-text-image',
+        'title'				=> 'Text + Image',
+        'description'		=> '',
+        'render_callback'	=> 'gutenberg_custom_blocks_callback',
+        'category'			=> 'neutech_columbus_custom_blocks',
+        'icon'				=> 'table-row-before',
+        'keywords'			=> [],
+    ));
+
+    acf_register_block(array(
+        'name'				=> 'neutech-columbus-text',
+        'title'				=> 'Text',
+        'description'		=> '',
+        'render_callback'	=> 'gutenberg_custom_blocks_callback',
+        'category'			=> 'neutech_columbus_custom_blocks',
+        'icon'				=> 'table-row-before',
+        'keywords'			=> [],
+    ));
+
+    acf_register_block(array(
+        'name'				=> 'neutech-columbus-text-banner',
+        'title'				=> 'Text banner',
+        'description'		=> '',
+        'render_callback'	=> 'gutenberg_custom_blocks_callback',
+        'category'			=> 'neutech_columbus_custom_blocks',
+        'icon'				=> 'table-row-before',
+        'keywords'			=> [],
+    ));
+
 }

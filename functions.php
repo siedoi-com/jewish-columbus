@@ -50,6 +50,11 @@ function neutech_columbus_setup() {
 	register_nav_menus(
 		array(
 			'main-menu' => esc_html__( 'Main menu', 'neutech-columbus' ),
+			'footer-menu-1' => esc_html__( 'Footer menu 1', 'neutech-columbus' ),
+			'footer-menu-2' => esc_html__( 'Footer menu 2', 'neutech-columbus' ),
+			'footer-menu-3' => esc_html__( 'Footer menu 3', 'neutech-columbus' ),
+			'footer-menu-4' => esc_html__( 'Footer menu 4', 'neutech-columbus' ),
+			'copyright-menu' => esc_html__( 'Copyright Menu', 'neutech-columbus' ),
 		)
 	);
 
@@ -151,10 +156,8 @@ function neutech_columbus_scripts() {
 	}*/
 
     wp_enqueue_script('html5shiv-printshiv', 'https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js', [], _S_VERSION, false);
-    wp_enqueue_script('neutech-columbus-theme', get_template_directory_uri().'/assets/main.js', [], time(), false);
     wp_enqueue_script('splide', get_template_directory_uri().'/assets/splide.min.js', [], _S_VERSION, true);
-
-    wp_register_script('neutech-columbus-script', get_template_directory_uri().'/script.js', [], _S_VERSION, true);
+    wp_register_script('neutech-columbus-script', get_template_directory_uri().'/assets/main.js', [], _S_VERSION, true);
     $php_vars = array(
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
     );
@@ -193,5 +196,12 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 include_once(get_template_directory() . '/inc/helpers.php');
 
+include_once(get_template_directory() . '/inc/acf-fields.php');
+
 if(file_exists(get_template_directory() . '/gutenberg-blocks/gutenberg-blocks.php'))
     include_once(get_template_directory() . '/gutenberg-blocks/gutenberg-blocks.php');
+
+
+function icon ($icon_id, $classes = '') {
+    return '<svg class="' . $classes . '"><use href="' . get_template_directory_uri() . '/assets/svg/sprite.svg?v='.time().'#icon-'.$icon_id.'"></use></svg>';
+}

@@ -14,7 +14,10 @@
             'fallback_cb' => false,
         ]);
         ?>
-        <div class="header__actions flex-row"> <a class="btn btn--border btn--border_white text--upp text--size_24 header__btn" href="#" aria-label="Make a gift"><span>Make a gift</span></a></div>
+        <div class="header__actions flex-row"> 
+            <a class="btn btn--border btn--border_white text--upp text--size_24 header__btn" href="#" aria-label="Make a gift"><span>Make a gift</span></a>
+            <button class="btn flex-center flex-col hamburger d-none header__hamburger" type="button" aria-label="Open menu"> <span class="hamburger__line bg--white d-block anim"> </span><span class="hamburger__line bg--white d-block anim"> </span><span class="hamburger__line bg--white d-block anim"> </span></button>
+
+        </div>
     </div>
 </header>
-<main>

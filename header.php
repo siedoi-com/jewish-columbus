@@ -24,5 +24,5 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<main>
 <?php get_template_part( 'template-parts/header' ); ?>
+<main>
